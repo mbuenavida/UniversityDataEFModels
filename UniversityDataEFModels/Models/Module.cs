@@ -40,7 +40,7 @@
         // ForeignKey
         [Display(Name = "ID Curso"), 
             Required]
-        public int CourseId { get; set; }
+        public int? CourseId { get; set; }
 
 
         // Propiedades de Navegación

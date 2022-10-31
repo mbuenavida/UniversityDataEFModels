@@ -5,8 +5,9 @@
     public interface IRepositoryModule
     {
         Module? GetModule(int Id);
-        void DeleteModeule(int Id);
+        void DeleteModule(int Id);
         void AddModule(Module modulo);
+
         List<Module>? ListModules();
     }
 }

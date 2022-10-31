@@ -45,7 +45,7 @@ namespace UniversityDataEFModels.Services
             }
         }
 
-        public void DeleteModeule(int Id)
+        public void DeleteModule(int Id)
         {
             if (_context.Modules is not null)
             {
