@@ -16,27 +16,35 @@
     {
         public int Id { get; set; }
 
-        [Column("ModName", TypeName = "varchar(100)")]
-        [Required]
+        [Display(Name = "Título"), 
+            Column("ModName", TypeName = "varchar(100)"),
+            Required]
         public string? Name { get; set; }
 
-        [Column("ModCode", TypeName = "varchar(25)")]
-        [Required]
+        [Display(Name = "Código"), 
+            Column("ModCode", TypeName = "varchar(25)"),
+            Required]
         public string? Code { get; set; }
 
-        [Required]
+        [Display(Name = "Créditos"), 
+            Required]
         public int Credits { get; set; }
 
+        [Display(Name = "Duración"),
+            Required]
         public DurationType Duration { get; set; }
 
+        [Display(Name = "Obligatorio")]
         public bool Mandatory { get; set; }
 
         // ForeignKey
-        [Required]
+        [Display(Name = "ID Curso"), 
+            Required]
         public int CourseId { get; set; }
 
 
         // Propiedades de Navegación
+        [Display(Name = "Curso")]
         public virtual Course? MyCourse { get; set; }
     }
 }

@@ -1,20 +1,31 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using UniversityDataEFModels.Models;
+using UniversityDataEFModels.Services;
 
 namespace UniversityDataEFModels.Controllers
 {
     public class ModuleController : Controller
     {
+        // Interfaz de Repositorio a utilizar
+        private readonly IRepositoryModule _contextFactory;
+
+        // Constructor e Inyección del context.
+        public ModuleController(IRepositoryModule repositoryModule)
+        {
+            _contextFactory = repositoryModule;
+        }
+
         // GET: ModuleController
         public ActionResult Index()
         {
-            return View();
+            return View(_contextFactory.ListModules());
         }
 
         // GET: ModuleController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(_contextFactory.GetModule(id));
         }
 
         // GET: ModuleController/Create
@@ -26,10 +37,18 @@ namespace UniversityDataEFModels.Controllers
         // POST: ModuleController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(IFormCollection collection, string name,
+            string code, int credits, DurationType duration, bool mandatory,int courseId)
         {
             try
             {
+                _contextFactory.AddModule(new Module() {Name = name,
+                    Code=code, 
+                    Credits=credits,
+                    Duration = duration, 
+                    Mandatory=mandatory, 
+                    CourseId=courseId});
+
                 return RedirectToAction(nameof(Index));
             }
             catch

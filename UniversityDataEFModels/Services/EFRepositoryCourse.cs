@@ -45,8 +45,8 @@
             if (_context.Courses is not null)
             {
            
-                _context.Courses.Update(course);
-                _context.SaveChanges();
+                //_context.Courses.Update(course);
+                //_context.SaveChanges();
             }
         }
         /// <summary>
