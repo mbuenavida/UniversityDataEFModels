@@ -20,3 +20,8 @@ Esta misma práctica se desarrolla siguiendo las plantillas como en el manual en
 
 ## Controlador
 - Sin Scaffolding
+
+## SeedData
+<p>Se añade clase para sembrar la DB durante el desarrollo.</p>
+<p>Se siembran las tablas de Cursos Y módulos pero aún no se como generar las Foireign Keys automáticamente y debe hacerse a mano.</p>
+<p>No olvidar que si los campos <b>notnull</b> no están completados, al levantar la app, petará.</p>
