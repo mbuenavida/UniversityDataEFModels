@@ -11,14 +11,18 @@ namespace UniversityDataEFModels.Models
     {
         public int Id { get; set; }
 
-        [Column("CourName", TypeName = "varchar(100)")]
-        [Required] 
+        [Display(Name = "Título"),
+            Column("CourName",TypeName = "varchar(100)"),
+            Required] 
         public string? Name { get; set; }
 
-        [Column("CourCode", TypeName = "varchar(25)")]
-        [Required]
+        [Display(Name = "Código"), 
+            Column("CourCode", TypeName = "varchar(25)"),
+            Required]
         public string? Code { get; set; }
 
+        [Display(Name = "Sección"),
+           Required]
         public string? Section { get; set; }
         
         

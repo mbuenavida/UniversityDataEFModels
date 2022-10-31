@@ -94,8 +94,7 @@ namespace UniversityDataEFModels.Controllers
         {
             try
             {
-                var data = _repositoryCourse.GetCourse(id);
-                _repositoryCourse.EditCourse(data);
+              
                 return RedirectToAction(nameof(Index));
             }
             catch

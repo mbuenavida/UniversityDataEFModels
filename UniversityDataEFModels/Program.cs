@@ -17,7 +17,7 @@ namespace UniversityDataEFModels
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Shared/Error");
             }
             app.UseStaticFiles();
 
@@ -27,7 +27,7 @@ namespace UniversityDataEFModels
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}");
+                pattern: "{controller=Courses}/{action=Index}");
 
             app.Run();
         }
