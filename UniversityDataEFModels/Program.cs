@@ -1,3 +1,5 @@
+using UniversityDataEFModels.Services;
+
 namespace UniversityDataEFModels
 {
     public class Program
@@ -6,9 +8,9 @@ namespace UniversityDataEFModels
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            //builder.Services.AddScoped<IRepositorioCurso, EFRepositorioCurso>();
+            builder.Services.AddScoped<IRepositoryCourse, EFRepositoryCourse>();
             //// Add services to the container.
-            //builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
 
