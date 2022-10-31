@@ -16,7 +16,13 @@ namespace UniversityDataEFModels.Models
             // This is hard coded here to limit scope of demo.
             var connectionString = "Data Source=MONICAIT;Initial Catalog=University; Integrated Security=True;";
 
-            dbContextBuilder.UseSqlServer(connectionString);
+            dbContextBuilder.UseSqlServer(connectionString, sqloptions => {
+                sqloptions.EnableRetryOnFailure(
+                    maxRetryCount: 5,
+                    maxRetryDelay: TimeSpan.FromSeconds(30),
+                    errorNumbersToAdd: new List<int>() { });
+            });
+
             return new UniversityContext(dbContextBuilder.Options);
         }
     }
