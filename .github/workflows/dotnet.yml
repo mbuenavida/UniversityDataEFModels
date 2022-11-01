@@ -26,10 +26,10 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
-    - name: SonarCloud Scan
+    - name: sonar-scanner
       # You may pin to the exact commit or the version.
-      # uses: SonarSource/sonarcloud-github-action@156db6fef3e168e4972abb76de0b32bbce8ec77a
-      uses: SonarSource/sonarcloud-github-action@v1.7
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      # uses: Warchant/setup-sonar-scanner@3a54371c833a3a8c9b1fb24d590a6396b96a6d93
+      uses: Warchant/setup-sonar-scanner@v4
+      with:
+        # Sonar-scanner version
+        version: 4.6.2.2472
